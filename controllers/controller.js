@@ -14,7 +14,7 @@
        let headers = { Authorization: `Bearer ${config.API_KEY_ML}`};
        let params = { q: req.query.q };
 
-       let service = await axios.get(`${config.ENDPOINT}${config.METHODS.SITES}/search`, params, { headers: headers });
+       let service = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${req.query.q}`, { headers: headers });
 
        return res.status(200).send(service.data);
     }
