@@ -1,0 +1,9 @@
+{
+    "API_KEY_ML": "chl3a3lgR60NlDGudzTZCAOOSalpLw32",
+    "APP_ID_ML": "3122831407377042",
+    "ENDPOINT": "https://api.mercadolibre.com",
+    "METHODS": {
+        "SITES": "/sites/MLA",
+        "ITEMS": "/items"
+    }
+}

@@ -14,7 +14,7 @@
  /**
   * Enpoint to **********
   */
-router.get('/', controller.method);
+router.get('/items', controller.getItems);
 
 /**
  * Export routes 
