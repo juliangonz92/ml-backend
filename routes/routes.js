@@ -15,6 +15,10 @@
   * Enpoint to **********
   */
 router.get('/items', controller.getItems);
+/**
+ * Endpoint to test
+ */
+router.get('/test', controller.testApi)
 
 /**
  * Export routes 

@@ -24,6 +24,23 @@
     }
  }
 
+ let testApi = async(req, res) => 
+ {
+   try
+   {
+      let data = {
+         message: 'Hello world!',
+         _id: 1
+      }
+      return res.status(200).send(data);
+   }
+   catch(err)
+   {
+      return res.status(400).send({message: err.message});
+   }
+ }
+
  module.exports = {
-    getItems
+    getItems,
+    testApi
 }
