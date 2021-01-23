@@ -56,19 +56,30 @@ let getItemById = async(req,res) =>
    {
       let params= {id: req.params.id}
       let headers = { Authorization: `Bearer ${config.API_KEY_ML}`};
-      let item_id = await axios.get(`https://api.mercadolibre.com/items/${req.params.id}`, params, { headers: headers });
-      let item_id_description = await axios.get(`https://api.mercadolibre.com/items/${req.params.id}/description`, params, { headers: headers });
+      let result = await axios.get(`https://api.mercadolibre.com/items/${req.params.id}`, params, { headers: headers });
+      let result_description = await axios.get(`https://api.mercadolibre.com/items/${req.params.id}/description`, params, { headers: headers });
 
       let response = {
          author: {
             name: 'Daniela',
-            lastname: Cordoba
+            lastname: 'Cordoba'
          },
-         categories: [],
-         items
+         item: {
+            id: result.data.id,
+            title: result.data.title,
+            price: {
+               currency: result.data.currency_id,
+               amount: result.data.price,
+               decimals: 0
+           },
+           picture: result.data.thumbnail,
+           condition: result.data.condition,
+           sold_quatity: result.data.sold_quantity,
+           description: result_description.data.plain_text
+         }
       }
 
-      return res.status(200).send(item_id.data);
+      return res.status(200).send(response);
    }
    catch(err)
    {
